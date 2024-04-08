@@ -1,20 +1,20 @@
 import random
 
 
-def is_valid(n, x, y):  # проверка на соответствие введенного значения условию
+def is_valid(n, x, y):  # проверка на соответствие введенного значения условию.
     return n.isdigit() and float(n) - int(float(n)) == 0 and x <= int(n) <= y
 
 
-def format_total(total):  # формат количества попыток
+def format_total(total):  # формат количества попыток.
     if total == 1 or total == 21 or total == 31 or total == 41 or total == 51:
         return f'{total} попытку'
     elif 2 <= total % 10 <= 4:
         return f'{total} попытки'
-    elif 5 <= total <= 20 or 25 <= total <= 30 or 35 <= total <= 40 or 45 <= total <= 50:
+    elif 5 <= total <= 20 or 25 <= total <= 30 or 35 <= total <= 40:
         return f'{total} попыток'
 
 
-def input_num(down_num = 0, up_num = 999999999999999999):  # ввод данных.
+def input_num(down_num=0, up_num=999999999999999999):  # ввод данных.
     while True:
         guess = input()
         if is_valid(guess, down_num, up_num):
@@ -24,8 +24,7 @@ def input_num(down_num = 0, up_num = 999999999999999999):  # ввод данны
                   f'до {up_num}?')
 
 
-# Сравнение введенного значения с загаданным.
-def compare_num(down_num, up_num):
+def compare_num(down_num, up_num):  # Сравнение значений.
     num = random.randint(down_num, up_num)
     total = 0
     while True:
@@ -45,7 +44,9 @@ def continue_game():  # Предложение продолжить игру
     ans = input('Хотите продолжить ("д"/"н")?\n')
     while True:
         if ans not in ('y', 'д', 'n', 'н'):
-            ans = input('Вроде, взрослый человек, а на простой вопрос ответить не может...\nПродолжим ("д"/"н")?\n')
+            ans = input('Вроде, взрослый человек, '
+                        'а на простой вопрос ответить не может...\n'
+                        'Продолжим ("д"/"н")?\n')
         elif ans in ('n', 'н'):
             print('До новых встреч!!!')
             return False
