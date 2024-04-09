@@ -1,11 +1,11 @@
 import random
 
 
-def is_valid(n, x, y):  # проверка на соответствие введенного значения условию.
+def is_valid(n, x, y):  # Проверка на соответствие введенного значения условию.
     return n.isdigit() and float(n) - int(float(n)) == 0 and x <= int(n) <= y
 
 
-def format_total(total):  # формат количества попыток.
+def format_total(total):  # Формат количества попыток.
     if total == 1 or total == 21 or total == 31 or total == 41 or total == 51:
         return f'{total} попытку'
     elif 2 <= total % 10 <= 4:
@@ -14,7 +14,7 @@ def format_total(total):  # формат количества попыток.
         return f'{total} попыток'
 
 
-def input_num(down_num=0, up_num=999999999999999999):  # ввод данных.
+def input_num(down_num=0, up_num=999999999999999999):  # Ввод данных.
     while True:
         guess = input()
         if is_valid(guess, down_num, up_num):
@@ -40,7 +40,7 @@ def compare_num(down_num, up_num):  # Сравнение значений.
             break
 
 
-def continue_game():  # Предложение продолжить игру
+def continue_game():  # Предложение продолжить игру.
     ans = input('Хотите продолжить ("д"/"н")?\n')
     while True:
         if ans not in ('y', 'д', 'n', 'н'):
@@ -54,7 +54,7 @@ def continue_game():  # Предложение продолжить игру
             return True
 
 
-def game():  # Запуск игры
+def game():  # Запуск игры.
     print('Добро пожаловать в числовую угадайку!')
     while True:
         print('Укажите, в каком диапазоне Вы готовы угадывать числа:\n')
@@ -69,4 +69,4 @@ def game():  # Запуск игры
             break
 
 
-game()  # Вызов игры
+game()  # Вызов игры.
